@@ -6,12 +6,22 @@ const useMenu = () => {
 
   useEffect(() => {
     fetch("http://localhost:5000/menu")
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
         setMenu(data);
         setLoading(false);
+        return true;
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => {
+        setLoading(false);
       });
   }, []);
+
   return [menu, loading];
 };
 

@@ -3,11 +3,14 @@ import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 
 const Main = () => {
+  // const currentLocation = useLocation();
+  // console.log(currentLocation);
+  const isLogging = location.pathname.includes("login");
   return (
     <div>
-      <Navbar></Navbar>
+      {isLogging || <Navbar></Navbar>}
       <Outlet></Outlet>
-      <Footer></Footer>
+      {isLogging || <Footer></Footer>}
     </div>
   );
 };
